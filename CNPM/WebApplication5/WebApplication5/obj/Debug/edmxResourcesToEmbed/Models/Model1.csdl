@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FoodCompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agent">
+    <Key>
+      <PropertyRef Name="AgentID" />
+    </Key>
+    <Property Name="AgentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AgentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AgentAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Exports" Relationship="Self.FK__Export__AgentID__300424B4" FromRole="Agent" ToRole="Export" />
+    <NavigationProperty Name="Exports1" Relationship="Self.FK__Export__AgentID__30F848ED" FromRole="Agent" ToRole="Export" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthdate" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CMNN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Export">
+    <Key>
+      <PropertyRef Name="ExportID" />
+    </Key>
+    <Property Name="ExportID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AgentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExportDate" Type="DateTime" Precision="0" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DeliveryStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Agent" Relationship="Self.FK__Export__AgentID__300424B4" FromRole="Export" ToRole="Agent" />
+    <NavigationProperty Name="Agent1" Relationship="Self.FK__Export__AgentID__30F848ED" FromRole="Export" ToRole="Agent" />
+  </EntityType>
+  <EntityType Name="Import">
+    <Key>
+      <PropertyRef Name="ImportID" />
+    </Key>
+    <Property Name="ImportID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImportDate" Type="DateTime" Precision="0" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Import__ProductI__31EC6D26" FromRole="Import" ToRole="Product" />
+    <NavigationProperty Name="Product1" Relationship="Self.FK__Import__ProductI__32E0915F" FromRole="Import" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="OrderSP">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExportID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AgentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Imports" Relationship="Self.FK__Import__ProductI__31EC6D26" FromRole="Product" ToRole="Import" />
+    <NavigationProperty Name="Imports1" Relationship="Self.FK__Import__ProductI__32E0915F" FromRole="Product" ToRole="Import" />
+  </EntityType>
+  <EntityType Name="RevenueMonth">
+    <Key>
+      <PropertyRef Name="RevenueID" />
+    </Key>
+    <Property Name="RevenueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Months" Type="Int32" />
+    <Property Name="Revenue" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__Export__AgentID__300424B4">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
+    <End Role="Export" Type="Self.Export" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="AgentID" />
+      </Principal>
+      <Dependent Role="Export">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Export__AgentID__30F848ED">
+    <End Role="Agent" Type="Self.Agent" Multiplicity="0..1" />
+    <End Role="Export" Type="Self.Export" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agent">
+        <PropertyRef Name="AgentID" />
+      </Principal>
+      <Dependent Role="Export">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Import__ProductI__31EC6D26">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Import" Type="Self.Import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Import">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Import__ProductI__32E0915F">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Import" Type="Self.Import" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Import">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FoodCompanyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agents" EntityType="Self.Agent" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Exports" EntityType="Self.Export" />
+    <EntitySet Name="Imports" EntityType="Self.Import" />
+    <EntitySet Name="OrderSPs" EntityType="Self.OrderSP" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="RevenueMonths" EntityType="Self.RevenueMonth" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="UserLogins" EntityType="Self.UserLogin" />
+    <AssociationSet Name="FK__Export__AgentID__300424B4" Association="Self.FK__Export__AgentID__300424B4">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="Export" EntitySet="Exports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Export__AgentID__30F848ED" Association="Self.FK__Export__AgentID__30F848ED">
+      <End Role="Agent" EntitySet="Agents" />
+      <End Role="Export" EntitySet="Exports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Import__ProductI__31EC6D26" Association="Self.FK__Import__ProductI__31EC6D26">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Import" EntitySet="Imports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Import__ProductI__32E0915F" Association="Self.FK__Import__ProductI__32E0915F">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Import" EntitySet="Imports" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,10 @@
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\obj\Debug\SalesManagement.csproj.AssemblyReference.cache
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\obj\Debug\SalesManagement.Login.resources
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\obj\Debug\SalesManagement.Properties.Resources.resources
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\obj\Debug\SalesManagement.csproj.GenerateResource.cache
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\obj\Debug\SalesManagement.csproj.CoreCompileInputs.cache
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\bin\Debug\SalesManagement.exe.config
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\bin\Debug\SalesManagement.exe
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\bin\Debug\SalesManagement.pdb
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\obj\Debug\SalesManagement.exe
+C:\Users\Thu Le\source\repos\SalesManagement\SalesManagement\obj\Debug\SalesManagement.pdb
